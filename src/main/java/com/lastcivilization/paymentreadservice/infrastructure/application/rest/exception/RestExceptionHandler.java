@@ -4,6 +4,7 @@ import com.lastcivilization.paymentreadservice.domain.exception.AccountNotFoundE
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -12,11 +13,8 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 class RestExceptionHandler {
 
     @ExceptionHandler(AccountNotFoundException.class)
-    ResponseEntity<ErrorEntity> handleAccountNotFoundException(AccountNotFoundException exception){
-        return ResponseEntity
-                .status(NOT_FOUND)
-                .body(new ErrorEntity(
-                        exception.getMessage()
-                ));
+    @ResponseStatus(NOT_FOUND)
+    ErrorEntity handleAccountNotFoundException(AccountNotFoundException exception){
+        return new ErrorEntity(exception.getMessage());
     }
 }
