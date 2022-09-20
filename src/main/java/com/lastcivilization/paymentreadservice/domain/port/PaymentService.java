@@ -2,7 +2,7 @@ package com.lastcivilization.paymentreadservice.domain.port;
 
 import com.lastcivilization.paymentreadservice.domain.Account;
 
-public interface AccountService {
+public interface PaymentService {
 
-    Account getAccountById(Long id);
+    Account getAccountById(long id);
 }
