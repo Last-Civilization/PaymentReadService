@@ -21,4 +21,11 @@ class AccountRepositoryAdapter implements AccountRepository {
         return accountEntity
                 .map(MAPPER::toDomain);
     }
+
+    @Override
+    public Account save(Account account) {
+        AccountEntity accountEntity = MAPPER.toEntity(account);
+        AccountEntity savedAccountEntity = accountJpaRepository.save(accountEntity);
+        return MAPPER.toDomain(savedAccountEntity);
+    }
 }

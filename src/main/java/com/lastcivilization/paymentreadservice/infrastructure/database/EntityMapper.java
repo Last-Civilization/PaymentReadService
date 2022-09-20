@@ -10,4 +10,5 @@ interface EntityMapper {
     EntityMapper MAPPER = Mappers.getMapper(EntityMapper.class);
 
     Account toDomain(AccountEntity accountEntity);
+    AccountEntity toEntity(Account account);
 }
