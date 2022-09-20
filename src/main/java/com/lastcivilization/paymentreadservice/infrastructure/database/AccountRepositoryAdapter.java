@@ -11,7 +11,7 @@ import static com.lastcivilization.paymentreadservice.infrastructure.database.En
 
 @Service
 @RequiredArgsConstructor
-class AccountRepistoryAdapter implements AccountRepository {
+class AccountRepositoryAdapter implements AccountRepository {
 
     private final AccountJpaRepository accountJpaRepository;
 
