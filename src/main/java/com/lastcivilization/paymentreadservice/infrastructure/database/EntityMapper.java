@@ -1,6 +1,6 @@
 package com.lastcivilization.paymentreadservice.infrastructure.database;
 
-import com.lastcivilization.paymentreadservice.domain.Account;
+import com.lastcivilization.paymentreadservice.domain.view.AccountModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -9,6 +9,6 @@ interface EntityMapper {
 
     EntityMapper MAPPER = Mappers.getMapper(EntityMapper.class);
 
-    Account toDomain(AccountEntity accountEntity);
-    AccountEntity toEntity(Account account);
+    AccountModel toDomain(AccountEntity accountEntity);
+    AccountEntity toEntity(AccountModel account);
 }

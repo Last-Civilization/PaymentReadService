@@ -1,8 +1,7 @@
 package com.lastcivilization.paymentreadservice.infrastructure.application.config;
 
-import com.lastcivilization.paymentreadservice.domain.PaymentServiceImp;
+import com.lastcivilization.paymentreadservice.domain.PaymentService;
 import com.lastcivilization.paymentreadservice.domain.port.AccountRepository;
-import com.lastcivilization.paymentreadservice.domain.port.PaymentService;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,6 +16,6 @@ class BeanConfiguration {
 
     @Bean
     PaymentService paymentService(AccountRepository accountRepository){
-        return new PaymentServiceImp(accountRepository);
+        return new PaymentService(accountRepository);
     }
 }

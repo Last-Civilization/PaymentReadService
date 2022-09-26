@@ -1,7 +1,7 @@
 package com.lastcivilization.paymentreadservice.infrastructure.database;
 
-import com.lastcivilization.paymentreadservice.domain.Account;
 import com.lastcivilization.paymentreadservice.domain.port.AccountRepository;
+import com.lastcivilization.paymentreadservice.domain.view.AccountModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +16,14 @@ class AccountRepositoryAdapter implements AccountRepository {
     private final AccountJpaRepository accountJpaRepository;
 
     @Override
-    public Optional<Account> findById(Long id) {
+    public Optional<AccountModel> findById(Long id) {
         Optional<AccountEntity> accountEntity = accountJpaRepository.findById(id);
         return accountEntity
                 .map(MAPPER::toDomain);
     }
 
     @Override
-    public Account save(Account account) {
+    public AccountModel save(AccountModel account) {
         AccountEntity accountEntity = MAPPER.toEntity(account);
         AccountEntity savedAccountEntity = accountJpaRepository.save(accountEntity);
         return MAPPER.toDomain(savedAccountEntity);

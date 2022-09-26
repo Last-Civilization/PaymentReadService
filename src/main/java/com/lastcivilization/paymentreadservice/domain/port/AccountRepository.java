@@ -1,13 +1,13 @@
 package com.lastcivilization.paymentreadservice.domain.port;
 
-import com.lastcivilization.paymentreadservice.domain.Account;
+import com.lastcivilization.paymentreadservice.domain.view.AccountModel;
 
 import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public interface AccountRepository {
 
-    Optional<Account> findById(Long id);
+    Optional<AccountModel> findById(Long id);
 
-    Account save(Account account);
+    AccountModel save(AccountModel account);
 }

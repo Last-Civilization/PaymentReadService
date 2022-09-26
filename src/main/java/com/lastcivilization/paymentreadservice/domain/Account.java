@@ -1,6 +1,6 @@
 package com.lastcivilization.paymentreadservice.domain;
 
-public class Account {
+class Account {
 
     private Long id;
     private int money;
