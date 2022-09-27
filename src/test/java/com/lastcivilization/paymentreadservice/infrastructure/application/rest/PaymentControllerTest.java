@@ -27,8 +27,17 @@ class PaymentControllerTest extends IntegrationBaseClass {
     void shouldReturnNotFoundWhileGettingAccountById() throws Exception {
         //given
         //when
-        ResultActions getResult = mockMvc.perform(get("/payments/-1"));
+        ResultActions getResult = mockMvc.perform(get("/payments/2"));
         //then
         getResult.andExpect(status().isNotFound());
+    }
+
+    @Test
+    void shouldReturnValidationExceptionWhileGettingAccountById() throws Exception {
+        //given
+        //when
+        ResultActions getResult = mockMvc.perform(get("/payments/-1"));
+        //then
+        getResult.andExpect(status().isBadRequest());
     }
 }
