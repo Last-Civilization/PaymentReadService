@@ -2,7 +2,11 @@ package com.lastcivilization.paymentreadservice.domain;
 
 import com.lastcivilization.paymentreadservice.domain.view.AccountModel;
 
-class Mapper {
+final class Mapper {
+
+    private Mapper(){
+        throw new RuntimeException("You can not create instance of this class!");
+    }
 
     static Account toDomain(AccountModel accountModel){
         return Account.Builder.anAccount()
